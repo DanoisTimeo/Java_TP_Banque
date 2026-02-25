@@ -31,7 +31,12 @@ public class Client {
     private Banque banque;
 
     // Relation avec Compte
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany
+    @JoinTable(
+            name = "client_compte",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "compte_id")
+    )
     private List<Compte> comptes = new ArrayList<>();
 
     //<editor-fold desc="Constructeurs">

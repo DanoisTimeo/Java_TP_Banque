@@ -18,10 +18,12 @@ public class AssuranceVie extends Compte {
     //<editor-fold desc="Constructeurs">
     public AssuranceVie() {}
 
-    public AssuranceVie(Double taux, LocalDateTime dateFin) {
+    public AssuranceVie(String numero, double solde, Double taux, LocalDateTime dateFin) {
+        super(numero, solde);
         this.taux = taux;
         this.dateFin = dateFin;
     }
+
     //</editor-fold>
 
     //<editor-fold desc="Getter">

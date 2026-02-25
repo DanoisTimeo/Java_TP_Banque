@@ -30,10 +30,11 @@ public class Operation {
     //<editor-fold desc="Constructeurs">
     public Operation() {}
 
-    public Operation(LocalDateTime date, double montant, String motif) {
+    public Operation(LocalDateTime date, double montant, String motif, Compte compte) {
         this.date = date;
         this.montant = montant;
         this.motif = motif;
+        this.compte = compte;
     }
     //</editor-fold>
 

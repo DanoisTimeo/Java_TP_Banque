@@ -13,8 +13,8 @@ public class LivretA extends Compte {
     //<editor-fold desc="Constructeurs">
     public LivretA () {}
 
-    public LivretA(String numero, double solde, Client client, Double taux) {
-        super(numero, solde, client);
+    public LivretA(String numero, double solde, Double taux) {
+        super(numero, solde);
         this.taux = taux;
     }
     //</editor-fold>

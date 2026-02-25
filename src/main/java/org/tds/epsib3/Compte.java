@@ -2,6 +2,7 @@ package org.tds.epsib3;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,9 +22,8 @@ public class Compte {
     private double solde;
 
     // Relation vers Client
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+    @ManyToMany(mappedBy = "comptes")
+    private List<Client> clients = new ArrayList<>();
 
     @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Operation> operations;
@@ -31,11 +31,11 @@ public class Compte {
     //<editor-fold desc="Constructeurs">
     public Compte() {}
 
-    public Compte(String numero, double solde, Client client) {
+    public Compte(String numero, double solde) {
         this.numero = numero;
         this.solde = solde;
-        this.client = client;
     }
+
     //</editor-fold>
 
     //<editor-fold desc="Getter">
@@ -51,8 +51,8 @@ public class Compte {
         return solde;
     }
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClients() {
+        return clients;
     }
 
     public List<Operation> getOperations() {
@@ -69,8 +69,8 @@ public class Compte {
         this.solde = solde;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 
     public void setOperations(List<Operation> operations) {

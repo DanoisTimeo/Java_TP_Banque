@@ -1,4 +1,4 @@
-Ce projet réalise les TP 4 à X.
+Timéo Danois, B3 DEV Epsi Nantes. Ce projet réalise les TP 4 à X.
 
 ## Lancement de la BDD
 ### Docker

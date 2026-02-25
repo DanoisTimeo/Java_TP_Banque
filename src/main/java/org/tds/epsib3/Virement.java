@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 @Entity
 @DiscriminatorValue("Virement")
 public class Virement extends Operation {
-    @Column(name = "beneficiaire", nullable = false)
+    @Column(name = "beneficiaire")
     private String beneficiaire;
 
     //<editor-fold desc="Constructeurs">
     public Virement() {}
 
-    public Virement(LocalDateTime date, double montant, String motif, String beneficiaire) {
-        super(date, montant, motif);
+    public Virement(LocalDateTime date, double montant, String motif, Compte compte, String beneficiaire) {
+        super(date, montant, motif, compte);
         this.beneficiaire = beneficiaire;
     }
     //</editor-fold>
